@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const db = require('./db');
+const connectDB = require('./db');
+
 const app = express();
 const port = 5000;
 
@@ -20,7 +21,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-db((err, data, CatData) => {
+connectDB((err, data, CatData) => {
     if (err) {
         console.error('Failed to connect to the database:', err);
         process.exit(1);
