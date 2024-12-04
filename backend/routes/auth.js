@@ -20,6 +20,7 @@ router.post(
 		body('name').isLength({ min: 3 }),
 	],
 	async (req, res) => {
+		// console.log("This");
 		let success = false;
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {
