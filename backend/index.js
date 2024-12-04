@@ -5,7 +5,7 @@ const connectDB = require('./db');
 const app = express();
 const port = 5001;
 
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001', 'https://ash-foods.vercel.app/'];
+const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001', 'https://ash-foods.vercel.app'];
 
 const corsOptions = {
     origin: (origin, callback) => {
