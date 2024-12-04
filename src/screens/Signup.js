@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 export default function Signup() {
 	const [credentials, setCredentials] = useState({
-		name: '',
-		email: '',
-		password: '',
-		geolocation: '',
+		name: "",
+		email: "",
+		password: "",
+		geolocation: "",
 	});
-	let [address, setAddress] = useState('');
+	let [address, setAddress] = useState("");
 	let navigate = useNavigate();
 
 	const handleClick = async (e) => {
@@ -26,11 +26,11 @@ export default function Signup() {
 		// console.log(latlong)
 		let [lat, long] = latlong;
 		console.log(lat, long);
-		const response = await fetch('http://localhost:5001/api/auth/getlocation', {
+		const response = await fetch("https://ashfoods.onrender.com/api/auth/getlocation", {
 			// mode: 'no-cors',
-			method: 'POST',
+			method: "POST",
 			headers: {
-				'Content-Type': 'application/json',
+				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({ latlong: { lat, long } }),
 		});
@@ -42,14 +42,15 @@ export default function Signup() {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log("hello");
-		const response = await fetch('http://localhost:5001/api/auth/createuser', {
+		// console.log("hello", address);
+		if (credentials.geolocation == "") credentials.geolocation = address;
+		const response = await fetch("https://ashfoods.onrender.com/api/auth/createuser", {
 			// mode: 'no-cors',
 			// credentials: 'include',
 			// Origin:"http://localhost:3000/login",
-			method: 'POST',
+			method: "POST",
 			headers: {
-				'Content-Type': 'application/json',
+				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
 				name: credentials.name,
@@ -59,13 +60,12 @@ export default function Signup() {
 			}),
 		});
 		const json = await response.json();
-		console.log("hello",json);
 		if (json.success) {
 			//save the auth toke to local storage and redirect
-			localStorage.setItem('token', json.authToken);
-			navigate('/login');
+			localStorage.setItem("token", json.authToken);
+			navigate("/login");
 		} else {
-			alert('Enter Valid Credentials');
+			alert("Enter Valid Credentials");
 		}
 	};
 
@@ -82,10 +82,10 @@ export default function Signup() {
 					// 'url("https://www.kunstkopie.de/kunst/aleksandrova_karina/loeffel_salat.jpg")',
 					// 'url("https://images.pexels.com/photos/691114/pexels-photo-691114.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")',
 					'url("https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg")',
-				backgroundSize: 'cover',
-				height: '100vh',
-				display: 'flex',
-				flexDirection: 'column',
+				backgroundSize: "cover",
+				height: "100vh",
+				display: "flex",
+				flexDirection: "column",
 			}}
 		>
 			<div>
@@ -93,15 +93,15 @@ export default function Signup() {
 			</div>
 			<div
 				style={{
-					height: '100vh',
-					backgroundSize: 'cover',
-					background: 'rgba(255, 255, 255, 0.1)' /* Added background */,
-					boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)' /* Added boxShadow */,
-					backdropFilter: 'blur(7.4px)' /* Added backdropFilter */,
-					WebkitBackdropFilter: 'blur(7.4px)' /* Added WebkitBackdropFilter */,
-					display: 'flex',
-					justifyContent: 'center',
-					alignItems: 'center',
+					height: "100vh",
+					backgroundSize: "cover",
+					background: "rgba(255, 255, 255, 0.1)" /* Added background */,
+					boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)" /* Added boxShadow */,
+					backdropFilter: "blur(7.4px)" /* Added backdropFilter */,
+					WebkitBackdropFilter: "blur(7.4px)" /* Added WebkitBackdropFilter */,
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
 				}}
 			>
 				<div className="container">
@@ -109,8 +109,8 @@ export default function Signup() {
 						className="w-50 m-auto mt-5 rounded"
 						onSubmit={handleSubmit}
 						style={{
-							background: 'rgba(0,0,0, 0.5)' /* Added background */,
-							padding: '5px',
+							background: "rgba(0,0,0, 0.5)" /* Added background */,
+							padding: "5px",
 						}}
 					>
 						<div className="m-3">
@@ -119,7 +119,7 @@ export default function Signup() {
 							</label>
 							<input
 								style={{
-									background: 'rgba(0,0,0, 0.6)' /* Added background */,
+									background: "rgba(0,0,0, 0.6)" /* Added background */,
 								}}
 								type="text"
 								className="form-control"
@@ -135,7 +135,7 @@ export default function Signup() {
 							</label>
 							<input
 								style={{
-									background: 'rgba(0,0,0, 0.6)' /* Added background */,
+									background: "rgba(0,0,0, 0.6)" /* Added background */,
 								}}
 								type="email"
 								className="form-control"
@@ -152,7 +152,7 @@ export default function Signup() {
 							<fieldset>
 								<input
 									style={{
-										background: 'rgba(0,0,0, 0.6)' /* Added background */,
+										background: "rgba(0,0,0, 0.6)" /* Added background */,
 									}}
 									type="text"
 									className="form-control"
@@ -171,7 +171,7 @@ export default function Signup() {
 								name="geolocation"
 								className=" btn btn-success"
 							>
-								Click for current Location{' '}
+								Click for current Location{" "}
 							</button>
 						</div>
 						<div className="m-3">
@@ -180,7 +180,7 @@ export default function Signup() {
 							</label>
 							<input
 								style={{
-									background: 'rgba(0,0,0, 0.6)' /* Added background */,
+									background: "rgba(0,0,0, 0.6)" /* Added background */,
 								}}
 								type="password"
 								className="form-control"
