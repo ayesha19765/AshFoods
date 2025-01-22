@@ -13,15 +13,18 @@ AshFoods is a user-friendly web application designed to enhance the online food 
 ### **Search Functionality:**  
 - **Search Bar**: An intuitive search bar to find food items quickly by name or category.  
 - **Real-time Updates**: Displays results dynamically as users type their queries.
+<img width="600" alt="Food Menu" src="./public/ss7.png">
 
 ### **Food Menu Display:**  
 - **Dynamic Presentation**: A visually appealing display of food items, complete with images, prices, and descriptions.  
 - **Category Sorting**: Allows users to sort items by categories like beverages, desserts, and main courses.
+<img width="600" alt="Food Menu" src="./public/ss6.png">
 
 ### **Cart System:**  
 - **Add to Cart**: Easily add items to the cart with one click.  
 - **Item Customization**: Adjust quantities or remove items directly from the cart.  
 - **Cart Summary**: View total price and checkout options.
+<img width="600" alt="Food Menu" src="./public/ss5.png">
 
 ---
 
@@ -30,9 +33,12 @@ AshFoods is a user-friendly web application designed to enhance the online food 
 ### **Styling:**  
 - Clean, minimalistic design with vibrant colors to reflect the theme of food and dining.  
 - Well-organized layout for easy navigation.
+<img width="600" alt="Food Menu" src="./public/ss1.png">
+<img width="600" alt="Food Menu" src="./public/ss2.png">
 
 ### **Responsiveness:**  
 - Fully responsive across various devices, including desktops, tablets, and smartphones.
+<img width="200" alt="Food Menu" src="./public/ss8.jpeg">
 
 ---
 
